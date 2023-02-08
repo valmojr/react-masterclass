@@ -12,10 +12,10 @@ export const {
   } = createStitches({
     theme: {
       colors: {
-        primary: '#3a3a3a',
-        secondary: '#bfbfbf',
-        backgroundPrimary: '#242424',
-        backgroundSecondary: '#616161'
+        primary: 'blue',
+        secondary: 'darkblue',
+        backgroundPrimary: 'linear-gradient(to right, blue, darkblue)',
+        backgroundSecondary: 'linear-gradient(to right, white, lightblue)'
       },
     },
     media: {
@@ -34,8 +34,19 @@ export const {
 );
 
 export const globalCSS = globalCss({
+  '@font-face': [
+    {
+      fontFamily: 'Ubuntu',
+      src: "url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap')"
+    },
+    {
+      fontFamily: 'Roboto',
+      src: "url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap')"
+    }
+  ],
+
   ':root': {
-    fontFamily: 'Inter, Avenir, Helvetica, Arial, sans-serif',
+    fontFamily: 'Roboto',
     fontSize: '16px',
     lineHeight: '24px',
     fontWeight: '400',
@@ -43,14 +54,16 @@ export const globalCSS = globalCss({
     colorScheme: 'light dark',
     color: 'rgba(255, 255, 255, 0.87)',
     backgroundColor: '$backgroundPrimary',
-  
+    overflow: 'hidden',
+
+
     fontSynthesis: 'none',
     textRendering: 'optimizeLegibility',
     '-webkit-font-smoothing': 'antialiased',
     '-moz-osx-font-smoothing': 'grayscale',
     '-webkit-text-size-adjust': '100%',
   },
-  
+
   body: {
     margin: 0,
     display: 'flex',

@@ -1,9 +1,12 @@
 import { useState } from 'react';
+import Button from '../../../Shared/MainButton/MainButton';
 import LoginStyled from './Login.styled';
 
-const Login = () => {
+const Login = (props: any) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+
+  const {setLoginUp} = props.handler;
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
@@ -17,10 +20,16 @@ const Login = () => {
   };
 
   return (
-    <LoginStyled>
+    <LoginStyled
+      initial = {{
+        height: 0
+      }}
+      animate = {{
+        height: '100vh'
+      }}
+    >
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="username">Username:</label>
           <input
             type = "text"
             id = "username"
@@ -29,7 +38,6 @@ const Login = () => {
           />
         </div>
         <div>
-          <label htmlFor="password">Password:</label>
           <input
             type = "password"
             id = "password"
@@ -37,7 +45,8 @@ const Login = () => {
             onChange = {(event) => setPassword(event.target.value)}
           />
         </div>
-        <button type = "submit">Entrar</button>
+        <Button type={'primary'} onClick={ () => setLoginUp(false) }>Entrar</Button>
+        <Button type={'secundary'} onClick={ () => setLoginUp(false) }>Voltar</Button>
       </form>
     </LoginStyled>
   );
