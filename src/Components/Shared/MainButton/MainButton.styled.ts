@@ -12,10 +12,7 @@ export default styled(motion.button, {
 	padding: 0,
 	cursor: 'pointer',
 	outline: 'inherit',
-    '&:hover': {
-        background: '#FFF',
-        color: '$primary'
-    },
+    pointerEvents: 'initial',
     '&:focus': {
         outline: 'none'
     },

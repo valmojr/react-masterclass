@@ -6,7 +6,7 @@ const Login = (props: any) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const {setLoginUp} = props.handler;
+  const {setLoginUp, loginUp} = props.handler
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
@@ -45,8 +45,8 @@ const Login = (props: any) => {
             onChange = {(event) => setPassword(event.target.value)}
           />
         </div>
-        <Button type={'primary'} onClick={ () => setLoginUp(false) }>Entrar</Button>
-        <Button type={'secundary'} onClick={ () => setLoginUp(false) }>Voltar</Button>
+        <Button type={'primary'}>Entrar</Button>
+        <Button type={'secondary'} onClick={() => setLoginUp(false)}>Voltar</Button>
       </form>
     </LoginStyled>
   );

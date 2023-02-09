@@ -9,14 +9,24 @@ const Entry = () => {
     const [loginUp, setLoginUp] = useState<boolean>(false);
     const [signinUp, setSignUp] = useState<boolean>(false);
 
+    const signClick = () => {
+        return setSignUp(!signinUp)
+    }
+
+    const loginClick = () => {
+        return setLoginUp(!loginUp)
+    }
+
     return <EntryStyled>
+
+        <h1> teste </h1>
         {/* LOGO ou TEXTO AQUI */}
         <EntryHandler>
-            <MainButton type={'secondary'} onClick={()=> setSignUp(true)}>Sign In</MainButton>
-            <MainButton type={'secondary'} onClick={() => console.log(true)}>Login</MainButton>
+            <MainButton type={"primary"} onClick={signClick}>Sign In</MainButton>
+            <MainButton type={"secondary"} onClick={loginClick}>Login</MainButton>
         </EntryHandler>
-        {loginUp && <Login handler={ setLoginUp } />}
-        {signinUp && <Signup handler={ setSignUp }/>}
+        {loginUp && <Login handler={{setLoginUp, loginUp}} />}
+        {signinUp && <Signup handler={{setSignUp, signinUp}}/>}
     </EntryStyled>
 };
 
